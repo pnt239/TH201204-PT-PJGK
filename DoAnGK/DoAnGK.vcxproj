@@ -76,6 +76,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CSV.cpp" />
+    <ClCompile Include="HTML.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="stringex.cpp" />
+    <ClCompile Include="student.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CSV.h" />
+    <ClInclude Include="HTML.h" />
+    <ClInclude Include="stringex.h" />
+    <ClInclude Include="student.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

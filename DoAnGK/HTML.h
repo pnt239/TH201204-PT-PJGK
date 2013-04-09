@@ -9,6 +9,7 @@
 #typedef FILE *HTML;
 
 HTML html_create(char *filename);
+void html_close(HTML html);
 
 void html_header(HTML html, char *title);
 void html_footer(HTML html);

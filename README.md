@@ -4,7 +4,7 @@ TH201204-PT-PJGK
 Trường: ĐH Khoa học tự nhiên TP HCM <br>
 Lớp: 12CTT2<br>
 <br>
----- Đồ án giữa kỳ - môn Kỹ thuật lập trình ---<br>
+---- Đồ án giữa kỳ - Kỹ thuật lập trình ---<br>
 <br>
 + Nội dung:<br>
 Phát sinh tự động các trang HTML giới thiệu thành viên của lớp học. Lớp có một trang giới thiệu các thành viên, và mỗi 

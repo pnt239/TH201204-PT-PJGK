@@ -15,5 +15,5 @@ void main()
 	}
 	}
 	fclose(f);
-	//printf("%s", s);
+	
 }

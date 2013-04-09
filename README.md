@@ -2,7 +2,7 @@ TH201204-PT-PJGK
 ==================
 
 Trường: ĐH Khoa học tự nhiên TP HCM <br>
-Lớp: 12CTT2<br>
+Lớp: 12CTT2/TH04<br>
 <br>
 ---- Đồ án giữa kỳ - Kỹ thuật lập trình ---<br>
 <br>

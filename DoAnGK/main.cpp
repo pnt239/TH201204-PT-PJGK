@@ -3,6 +3,7 @@
 
 void main()
 {
+	//test
 	char s[1024];
 	FILE *f = fopen("data.csv", "rt");
 	while (!feof(f)) {

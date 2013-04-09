@@ -1,7 +1,7 @@
 TH201204-KTLT-DAGK
 ==================
 
-Trường: ĐH Khoa học tự nhiên TP HCM
+Trường: ĐH Khoa học tự nhiên TP HCM <br>
 Lớp: 12CTT2
 
 ---- Đồ án Kỹ thuật lập trình ---

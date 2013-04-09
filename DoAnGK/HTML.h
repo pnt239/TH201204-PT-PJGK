@@ -4,13 +4,19 @@
 
 #pragma once
 
-void html_header(char *title);
-void html_footer();
+#include <stdio.h>
 
-void html_body_navigation();
-void html_body_header(int level);
+#typedef FILE *HTML;
 
-void html_body_content_list();
-void html_body_content_pesonal();
+HTML html_create(char *filename);
 
-void html_create_listview();
+void html_header(HTML html, char *title);
+void html_footer(HTML html);
+
+void html_body_navigation(HTML html);
+void html_body_header(HTML html, int level);
+
+void html_body_content_list(HTML html);
+void html_body_content_pesonal(HTML html);
+
+void html_create_listview(HTML html);

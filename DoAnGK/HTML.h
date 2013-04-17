@@ -6,7 +6,7 @@
 
 #include <stdio.h>
 
-#typedef FILE *HTML;
+typedef FILE *HTML;
 
 HTML html_create(char *filename);
 void html_close(HTML html);

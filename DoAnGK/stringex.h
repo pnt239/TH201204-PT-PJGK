@@ -10,6 +10,7 @@
 * Cat chuoi theo ky tu phan cach. Tuong tu nhu strtok. Nhung tra ve 1 mang kieu chuoi chua cac chuoi duoc cat ra
 * Thong so: str   - Chuoi can cat
 *			delim - Chuoi chua cac ky tu phan cach
+*			csv   - cat chuoi theo kieu csv
 * Tra ve : mang cac chuoi duoc cat ra
 * Vi du: 
 * char *str = "hello,world";
@@ -20,7 +21,24 @@
 *	mang tra phai co <so phan tu thu te> + 1 phan tu va phan tu cuoi cung gan gia tri NULL, de tien trong qua trinh xu ly
 *	khong phai khoi tao them bien n de lay so luong phan tu
 **/
-char** strsplit(char *str, char *delim);
+char** strsplit(char *str, char *delim, bool csv = false);
+
+/**
+* Cat chuoi thanh 2 phan, lay delim lam phan ngan cach.
+* Thong so: str   - Chuoi can tach
+*			delim - Chuoi phan cach
+* Tra ve:   mang 3 phan tu (sau delim, truoc delim va NULL).
+*			Neu loi tra ve xau cu. 
+* Vi du:
+* char *str = "hello, world";
+* char **split = explode(str, ", ");
+* -> split[0] == "hello"
+*	 split[1] == "world"
+*	 split[2] == NULL
+*	mang tra phai co <so phan tu thu te> + 1 phan tu va phan tu cuoi cung gan gia tri NULL, de tien trong qua trinh xu ly
+*	khong phai khoi tao them bien n de lay so luong phan tu
+**/
+char** explode(char *str, char *delim);
 
 /**
 * Xoa cac khoang trang trong chuoi, theo flag cho truoc

@@ -1,6 +1,6 @@
 #include "stringex.h"
 
-char** strsplit(char *str, char *delim)
+char** strsplit(char *str, char *delim, bool csv)
 {
 	char **ret;
 	int n=strlen(delim);
@@ -26,6 +26,11 @@ char** strsplit(char *str, char *delim)
 	}
 	ret[i]=NULL;
 	return ret;
+}
+
+char** explode(char *str, char *delim)
+{
+	//
 }
 
 char* strtripws(char *str, int flag)

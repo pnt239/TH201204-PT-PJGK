@@ -77,6 +77,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CSV.cpp" />
+    <ClCompile Include="free.cpp" />
     <ClCompile Include="HTML.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stringex.cpp" />
@@ -84,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CSV.h" />
+    <ClInclude Include="free.h" />
     <ClInclude Include="HTML.h" />
     <ClInclude Include="stringex.h" />
     <ClInclude Include="student.h" />

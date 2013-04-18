@@ -24,7 +24,7 @@ int initCSV(RAW_CSV &csv, char *fpath)
 	/* Tra ve vi tri dau file */
 	fseek(f, 0, SEEK_SET);
 	/* Cap phat dong cho mang csv */								
-	csv= new char*[line_count + 1];			
+	csv = new char*[line_count + 1];
 	
 	while(!feof(f))
 	{
@@ -34,5 +34,7 @@ int initCSV(RAW_CSV &csv, char *fpath)
 	}
 
 	csv[i]=NULL;
+
 	fclose(f);
+	return 0;
 }

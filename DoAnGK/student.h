@@ -4,18 +4,22 @@
 
 #pragma once
 
+#include <stdlib.h>
+
 #include "CSV.h"
+#include "stringex.h"
+#include "free.h"
 
 // Struct chua thong tin cua 1 sinh vien
 typedef struct SD
 {
-	char MSSV[10];		// Ma so sinh vien, toi da 10 kt
-	char HoTen[30];		// Ho va ten sinh vien, to da 30 kt
-	char Khoa[30];		// Khoa, toi da 30 kt
+	char *MSSV;			// Ma so sinh vien, toi da 10 kt
+	char *HoTen;		// Ho va ten sinh vien, to da 30 kt
+	char *Khoa;			// Khoa, toi da 30 kt
 	int Nam;			// Kho'a
-	char BirthD[11];	// Ngay sinh theo dinh dang dd/mm/yyyy
-	char smallImg[255];	// Anh dai dien co nho, toi da 255 kt
-	char bigImg[255];	// Anh dai dien co lon, toi da 255 kt
+	char *BirthD;		// Ngay sinh theo dinh dang dd/mm/yyyy
+	char *smallImg;		// Anh dai dien co nho, toi da 255 kt
+	char *bigImg;		// Anh dai dien co lon, toi da 255 kt
 	char *FriendList;	// Danh sach ban be, toi da 50 ban
 	char *Description;	// Mo ta ban than, toi da 1000 kt
 	char *Hobby;		// So thich ca nhan, toi da 100 kt

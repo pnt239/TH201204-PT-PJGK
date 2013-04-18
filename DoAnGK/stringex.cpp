@@ -46,10 +46,7 @@ char** explode(char *str, char *delim)
 		ret[0][iCountChar] = 0;
 
 		/* Gan xau truoc delim vao phan tu 0 */
-		iCountChar = strlen(str) - iLenDelim - iCountChar; // Lay so ky tu cua xau sau delim
-		ret[1] = new char[iCountChar+1];
-		strncpy(ret[1], substr + iLenDelim, iCountChar);
-		ret[1][iCountChar] = 0;
+		ret[1] = substr + iLenDelim; // Lay chuoi con lai
 	}
 	return ret;
 }

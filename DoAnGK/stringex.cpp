@@ -30,10 +30,14 @@ char** strsplit(char *str, char *delim)
 
 char* strtripws(char *str, int flag)
 {
-	///
+	char *ret;
+
+	return ret;
 }
 
 char* strbetween(char *str, char begin, char end)
 {
-	//
+	char *ret;
+
+	return ret;
 }

@@ -27,16 +27,13 @@ char** strsplit(char *str, char *delim, bool csv = false);
 * Cat chuoi thanh 2 phan, lay delim lam phan ngan cach.
 * Thong so: str   - Chuoi can tach
 *			delim - Chuoi phan cach
-* Tra ve:   mang 3 phan tu (sau delim, truoc delim va NULL).
+* Tra ve:   mang 2 phan tu (sau delim va truoc delim).
 *			Neu loi tra ve xau cu. 
 * Vi du:
 * char *str = "hello, world";
 * char **split = explode(str, ", ");
 * -> split[0] == "hello"
 *	 split[1] == "world"
-*	 split[2] == NULL
-*	mang tra phai co <so phan tu thu te> + 1 phan tu va phan tu cuoi cung gan gia tri NULL, de tien trong qua trinh xu ly
-*	khong phai khoi tao them bien n de lay so luong phan tu
 **/
 char** explode(char *str, char *delim);
 

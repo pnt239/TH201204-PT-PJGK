@@ -1,18 +1,18 @@
 #include "CSV.h"
 
-void initCSV(RAW_CSV &csv, char *fpath)
+int initCSV(RAW_CSV &csv, char *fpath)
 {
+	int LINE_COUNT =0;
+
 	FILE *f = fopen(fpath, "rt");
-	int count_EOLINE=0;
-	if(f != NULL)
+	if(f != NULL) return -1;
+
+	while(fgetc(f) != EOF)
 	{
-		while(fgetc(f) != EOF)
-		{
-			if(fgetc(f) == '\n')
-				count_EOLINE++;
-		}
+		if(fgetc(f) == '\n')
+			LINE_COUNT++;
 	}											/* Dem so dong trong file */
-	csv= new char*[count_EOLINE + 1];			/* Cap phat dong cho mang csv */
+	csv= new char*[LINE_COUNT + 1];			/* Cap phat dong cho mang csv */
 	int i=0;
 	while(!feof(f))
 		{

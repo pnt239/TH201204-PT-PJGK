@@ -31,10 +31,17 @@ typedef struct SD
 * Tuc dung de luu tru thong tin cua n sinh vien vao mang 1 chieu
 **/
 typedef STUDENT *ST; 
+typedef ST *STS; 
 
 /**
 * Tham so:	csv - Du lieu tho^ lay tu file csv
 *			st	- Luu thong tin cac sinh vien lay tu du lien to
 * Tra ve: Du lien tho^ ban dau se duoc chuan hoa thanh du lieu kieu struct de tien trong viec xu ly ve sau
 **/
-void convertRAWtoST(RAW_CSV csv, ST &st);
+void convertRAWtoST(RAW_CSV csv, STS &st);
+
+/** 
+* Giai phong bo nho do ST tao ra
+* Tham so: st - du lieu st truyen vao
+**/
+void freeST(STS &st);

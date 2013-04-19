@@ -67,5 +67,5 @@ char* strbetween(char *str, char begin, char end)
 
 void strreplace(char *str, char *rep)
 {
-	//
+	return;
 }

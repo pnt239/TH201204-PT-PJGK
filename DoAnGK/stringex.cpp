@@ -64,3 +64,8 @@ char* strbetween(char *str, char begin, char end)
 
 	return ret;
 }
+
+void strreplace(char *str, char *rep)
+{
+	//
+}

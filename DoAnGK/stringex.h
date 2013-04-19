@@ -63,3 +63,5 @@ char* strtripws(char *str, int flag);
 * -> ret == "world"
 **/
 char* strbetween(char *str, char begin, char end);
+
+void strreplace(char *str, char *rep);

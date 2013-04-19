@@ -10,6 +10,6 @@ int main(int argc,char **argv)
 		return -1;
 	}
 	
-	
+	// khong xoa duoc mang h sao
 	return 0;
 }

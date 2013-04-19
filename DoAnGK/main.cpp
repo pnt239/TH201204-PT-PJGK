@@ -10,8 +10,6 @@ int main(int argc,char **argv)
 		return -1;
 	}
 	
-	for(int i=0; raw_data[i] != NULL; i++)
-        delete[] raw_data[i];
-    delete[] raw_data; 
+	
 	return 0;
 }

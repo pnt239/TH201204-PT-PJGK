@@ -7,8 +7,3 @@ char *freeExplode(char **exp)
 	delete exp;
 	return ret;
 }
-
-void freeRAWCSV(RAW_CSV &csv)
-{
-	delete[] csv;
-}

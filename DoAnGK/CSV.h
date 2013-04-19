@@ -6,6 +6,8 @@
 
 #include <stdio.h>
 
+#include "free.h"
+
 /**
 * Mang 1 chieu kieu xau
 */
@@ -28,3 +30,9 @@ typedef char **RAW_CSV;
 * 
 */
 int initCSV(RAW_CSV &csv, char *fpath);
+
+/** 
+* Giai phong bo nho do RAW_CSV tao ra
+* Tham so: csv - du lieu csv truyen vao
+**/
+int freeCSV(RAW_CSV &csv);

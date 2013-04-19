@@ -25,7 +25,7 @@ int initCSV(RAW_CSV &csv, char *fpath)
 	fseek(f, 0, SEEK_SET);
 	/* Cap phat dong cho mang csv */								
 	csv = new char*[line_count + 1];
-	
+
 	while(!feof(f))
 	{
 		csv[i] = new char[max_numchar];
@@ -33,8 +33,16 @@ int initCSV(RAW_CSV &csv, char *fpath)
 		i++;
 	}
 
-	csv[i]=NULL;
+	csv[i-1]=NULL;
 
 	fclose(f);
+	return 0;
+}
+
+int freeCSV(RAW_CSV &csv)
+{
+	for (int i = 0; csv[i] != NULL; i++)
+		delete csv[i];
+	delete csv;
 	return 0;
 }

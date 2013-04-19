@@ -13,9 +13,3 @@
 * -> temp1 == "World"
 **/
 char *freeExplode(char **exp);
-
-/** 
-* Giai phong bo nho do RAW_CSV tao ra
-* Tham so: csv - du lieu csv truyen vao
-**/
-void freeRAWCSV(RAW_CSV &csv);

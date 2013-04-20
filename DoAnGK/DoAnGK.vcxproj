@@ -83,7 +83,6 @@
     <ClCompile Include="program.cpp" />
     <ClCompile Include="stringex.cpp" />
     <ClCompile Include="student.cpp" />
-    <ClCompile Include="unicode.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CSV.h" />
@@ -92,7 +91,6 @@
     <ClInclude Include="program.h" />
     <ClInclude Include="stringex.h" />
     <ClInclude Include="student.h" />
-    <ClInclude Include="unicode.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

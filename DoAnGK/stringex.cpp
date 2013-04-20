@@ -53,11 +53,58 @@ char** explode(char *str, char *delim)
 	}
 	return ret;
 }
+void strtripws1(char *str,char *&ret)
+{
+	
+	int slen=strlen(str);
 
+	for(int i=0;i<slen;i++)
+	{
+		if(str[i]!= ' ')
+		{
+			int temp=slen-i;
+			for(int j=0;j<temp;j++)
+			{
+				ret[j]=str[i];
+				i++;
+			}
+			ret[temp]='\0';
+			break;
+		}
+	}
+	
+}
+void strtripws2(char *str,char *&ret)
+{
+	
+	int slen=strlen(str);
+	int j=0;
+	for(int i=slen-1;i>=0;i--)
+	{
+		if(str[i]!= ' ')
+		{
+			for(j=0;j<=i;j++)
+				ret[j]=str[j];				
+			ret[j]='\0';
+			break;
+		}
+	}
+
+}
 char* strtripws(char *str, int flag)
 {
 	char *ret;
-
+	int slen=strlen(str);
+	ret=new char[slen];
+	if(flag==1)
+		strtripws1(str,ret);
+	else if(flag==2)
+		strtripws2(str,ret);
+	else if(flag==3)
+	{
+		strtripws1(str,ret);
+		strtripws2(ret,ret);
+	}
 	return ret;
 }
 

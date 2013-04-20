@@ -49,6 +49,8 @@ char** explode(char *str, char *delim);
 * char *ret = strtripws(str, 3);
 * -> ret == "hello world"
 **/
+void strtripws1(char *str,char *&ret);
+void strtripws2(char *str,char *&ret);
 char* strtripws(char *str, int flag);
 
 /**

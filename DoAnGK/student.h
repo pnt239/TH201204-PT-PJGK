@@ -45,3 +45,8 @@ void convertRAWtoST(RAW_CSV csv, STS &st);
 * Tham so: st - du lieu st truyen vao
 **/
 void freeST(STS &st);
+
+/**
+* Tim chi so cua sinh vien co MSSV cho truoc
+**/
+int getFList(STS sts, char *mssv);

@@ -20,6 +20,15 @@ void log(char *local, char *content);
 void showHelp();
 
 /**
+* Copy file anh o thu muc data sang tu muc result
+* Tham so: sts     - Danh sach sinh vien
+*		   inpath  - Duong dan thu muc 'data'
+*		   outpath - Duong dan thu muc 'result'
+* Tra ve : khong co gia tri tra ve
+**/
+void prepareImage(STS sts, char *inpath, char *outpath);
+
+/**
 * Load du lieu nhap vao
 * Tham so : argc, argv lay tu ham main
 *			raw_data : mang de luu du lieu tho (khai bao truoc)
@@ -34,6 +43,12 @@ int initProgram(int argc,char *argv[], RAW_CSV &raw_data, STS &sts, char *&inpat
 * Tao file index.html
 **/
 void createIndex(STS sts, char *outpath);
+
+/**
+* Tao file <MSSV>.html
+**/
+void createSVPage(HTML html, STS sts, int i);
+void createSVS(STS sts, char *outpath);
 
 /**
 * Chay chuong trinh 

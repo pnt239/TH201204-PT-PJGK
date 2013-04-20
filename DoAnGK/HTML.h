@@ -31,10 +31,17 @@ void html_body_navigation(HTML html);
 void html_body_content(HTML html, int level);
 void html_body_content_header(HTML html, char *title, char *subtitle, int level);
 
+// For All
+void html_build_list(HTML html, char **list);
+
+// For index file
 void html_idxlist_begin(HTML html);
 void html_idxlist_end(HTML html);
 void html_idxlist_element(HTML html, char *mssv, char *name, char *year);
 
-void html_body_content_pesonal(HTML html);
-
-void html_create_listview(HTML html);
+// For Member file
+void html_content_pesonal_begin(HTML html, char *mssv, char *birth, char *year, char **des, char **hobby);
+void html_listview_begin(HTML html);
+void html_listview_item(HTML html, char *mssv, char *name, char *year);
+void html_listview_end(HTML html);
+void html_content_pesonal_end(HTML html);

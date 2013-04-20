@@ -21,7 +21,7 @@
 *	mang tra phai co <so phan tu thu te> + 1 phan tu va phan tu cuoi cung gan gia tri NULL, de tien trong qua trinh xu ly
 *	khong phai khoi tao them bien n de lay so luong phan tu
 **/
-char** strsplit(char *str, char *delim, bool csv = false);
+char** strsplit(char *str, char *delim);
 
 /**
 * Cat chuoi thanh 2 phan, lay delim lam phan ngan cach.
@@ -63,5 +63,3 @@ char* strtripws(char *str, int flag);
 * -> ret == "world"
 **/
 char* strbetween(char *str, char begin, char end);
-
-void strreplace(char *str, char *rep);

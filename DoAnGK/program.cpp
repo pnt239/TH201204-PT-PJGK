@@ -17,8 +17,13 @@ int run(int argc,char *argv[])
 		return error;
 	}
 	
+	log("buildinfo", "Chuan bi tao file 'index.html'...");
 	createIndex(sts, _OUT_PATH);
 	log("buildinfo", "Da tao file 'index.html' thanh cong...");
+
+	log("buildinfo", "Chuan bi xuat file thong tin cac sinh vien...");
+	createSVS(sts, _OUT_PATH);
+	log("buildinfo", "Qua trinh hoan tat...");
 
 	// Giai phong du lieu tho
 	freeST(sts);
@@ -103,33 +108,84 @@ void createIndex(STS sts, char *outpath)
 	delete filename;
 }
 
-void createSVPage(ST st)
+void createSVPage(HTML html, STS sts, int i)
 {
-	//
+	ST st = sts[i];
+
+	printf("buildinfo -> Dang tao file HTML cua sinh vien %s\n", sts[i]->MSSV);
+
+	char *buf = new char[41];
+	sprintf(buf, "%s - %s", st->HoTen, st->MSSV);
+	html_header(html, buf);
+	delete buf;
+	html_body_navigation(html);
+	html_body_content(html, 2);
+	html_body_content_header(html, st->HoTen, st->MSSV, 2);
+	
+	char year[5];
+	itoa(st->Nam, year, 10);
+	html_content_pesonal_begin(html, st->MSSV, st->BirthD, year, strsplit(st->Description, ","), strsplit(st->Hobby, ","));
+	html_listview_begin(html);
+		char **friendlist = strsplit(st->FriendList, ";");
+		for (int i = 0; friendlist[i] != NULL; i++)
+		{
+			int pos = getFList(sts, friendlist[i]);
+			if (pos != -1) {
+				itoa(sts[pos]->Nam, year, 10);
+				html_listview_item(html, friendlist[i], sts[pos]->HoTen, year);
+			} else {
+				printf("error -> Khong the lay thong tin cua sinh vien %s\n", friendlist[i]);
+			}
+		}
+	html_listview_end(html);
+	html_content_pesonal_end(html);
 }
 
-void log(char *local, char *content)
+void createSVS(STS sts, char *outpath)
 {
-	printf("%s -> %s\n", local, content);
+	char *filename;
+	HTML html;
+
+	for (int i = 0; sts[i] != NULL; i++)
+	{
+		filename = new char[strlen(outpath)+14];
+		sprintf(filename, "%s/%s.html", outpath, sts[i]->MSSV);
+		html = html_create(filename);
+		if (html == NULL) {
+			printf("%s -> Khong the tao file '%s.html' duoc!\n", "createSV", sts[i]->MSSV);
+			continue;
+		}
+
+		createSVPage(html, sts, i);
+
+		html_footer(html, "HungryBirds");
+		html_close(html);
+		delete filename;
+	}
 }
 
 void prepareImage(STS sts, char *inpath, char *outpath)
 {
 	for (int i = 0; sts[i] != NULL; i++) {
 		// Tao duong dan noi luu file
-		char *smallin = new char[strlen(inpath)+strlen(sts[i]->smallImg)+2];
-		sprintf(smallin, "%s/%s", inpath, sts[i]->smallImg);
-		char *bigin   = new char[strlen(inpath)+strlen(sts[i]->bigImg)+2];
-		sprintf(bigin, "%s/%s", inpath, sts[i]->bigImg);
+		char *smallin = new char[strlen(inpath)+strlen(sts[i]->smallImg)+9];
+		sprintf(smallin, "%s/images/%s", inpath, sts[i]->smallImg);
+		char *bigin   = new char[strlen(inpath)+strlen(sts[i]->bigImg)+9];
+		sprintf(bigin, "%s/images/%s", inpath, sts[i]->bigImg);
 
 		// Tao duong dan noi chua file
-		char *smallout = new char[strlen(outpath)+strlen(sts[i]->MSSV)+8];
-		sprintf(smallout, "%s/%s_t.jpg", outpath, sts[i]->MSSV);
-		char *bigout   = new char[strlen(outpath)+strlen(sts[i]->MSSV)+6];
-		sprintf(bigout, "%s/%s.jpg", outpath, sts[i]->MSSV);
+		char *smallout = new char[strlen(outpath)+strlen(sts[i]->MSSV)+17];
+		sprintf(smallout, "%s/images/%s_t.jpg", outpath, sts[i]->MSSV);
+		char *bigout   = new char[strlen(outpath)+strlen(sts[i]->MSSV)+15];
+		sprintf(bigout, "%s/images/%s.jpg", outpath, sts[i]->MSSV);
 
 		// Copy file
 		fcopy(smallin, smallout);
 		fcopy(bigin, bigout);
 	}
+}
+
+void log(char *local, char *content)
+{
+	printf("%s -> %s\n", local, content);
 }

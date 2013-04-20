@@ -1,30 +1,33 @@
 #include "stringex.h"
 
-char** strsplit(char *str, char *delim, bool csv)
+char** strsplit(char *str, char *delim)
 {
-	char **ret;
-	int n=strlen(delim);
-	int i=0;
-	int count_delim=0;
-	while(str[i] != NULL)
-	{
-		for(int j=0;j<n;j++)
-		{
-			if(str[i]==delim[j])
-				count_delim++;
-		}
-		i++;
-	}		//Dem so luong phan tu con cua delim trong str
-	ret= new char*[count_delim+1];
-	char *pch= strtok(str,delim);
-	i=0;
-	while(pch != NULL)
-	{
-		ret[i]=pch;
-		i++;
-		pch=strtok(NULL,delim);
+	char **ret = NULL;
+	// Do so phan tu
+	int elem_count = 1, slen = strlen(str);
+	char *temp = strstr(str, delim), *ltemp;
+	for (int i = 0; temp != NULL; i++, elem_count++) {
+		temp = temp + 1;
+		temp = strstr(temp, delim);
 	}
-	ret[i]=NULL;
+	
+	ret = new char*[elem_count+1];
+	ret[elem_count] = NULL;
+	temp = str;
+	for (int i = 0; i < elem_count; i++)
+	{
+		ltemp = temp;
+		temp = strstr(temp, delim);
+		if (temp == NULL) {
+			ret[i] = ltemp;
+			continue;
+		}
+		int elen = temp - ltemp;
+		ret[i] = new char[elen+1];
+		for (int j = 0; j < elen; j++) ret[i][j] = ltemp[j];
+		ret[i][elen] = 0;
+		temp++;
+	}
 	return ret;
 }
 
@@ -60,12 +63,27 @@ char* strtripws(char *str, int flag)
 
 char* strbetween(char *str, char begin, char end)
 {
-	char *ret;
+	char *ret = NULL;
 
+	bool start = false;
+	int slen = strlen(str), chr = 0;
+
+	ret = new char[slen];
+	ret[0] = 0;
+
+	for (int i = 0; i < slen; i++)
+	{
+		if (str[i] == begin && !start) {
+			start = true;
+		} else if (str[i] == end && start) {
+			ret[chr] = 0;
+		} else {
+			if (start) {
+				ret[chr] = str[i];
+				chr++;
+			}
+		}
+	}
+	if (ret[0] == 0) strcpy(ret, str);
 	return ret;
-}
-
-void strreplace(char *str, char *rep)
-{
-	return;
 }

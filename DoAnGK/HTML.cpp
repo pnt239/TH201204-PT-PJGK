@@ -148,3 +148,93 @@ void html_idxlist_element(HTML html, char *mssv, char *name, char *year)
     fprintf(html, "</a>");
     fprintf(html, "</li>");
 }
+
+void html_content_pesonal_begin(HTML html, char *mssv, char *birth, char *year, char **des, char **hobby)
+{
+	fprintf(html, "<!-- Content -->");
+    fprintf(html, "<div class=\"page-region\">");
+    fprintf(html, "<div class=\"page-region-content\">");
+    fprintf(html, "<div class=\"grid\">");
+    fprintf(html, "<div class=\"row\">");
+    fprintf(html, "<div class=\"span3\">");
+    fprintf(html, "<div class=\"image-container bg-color-green\">");
+    fprintf(html, "<img src=\"./images/%s.jpg\" alt=\"%s\">", mssv, mssv);
+    fprintf(html, "<div class=\"overlay\">");
+    fprintf(html, "<!-- Ngay sinh -->");
+    fprintf(html, "<p>%s</p>", birth);
+    fprintf(html, "<!-- Khoa - Khoa hoc -->");
+    fprintf(html, "<p>FIT %s</p>", year);
+    fprintf(html, "</div>");
+    fprintf(html, "</div>");
+    fprintf(html, "<ul class=\"listview\" id=\"personality\">");
+    fprintf(html, "<li class=\"bg-color-yellow fg-color-white\">");
+    fprintf(html, "<div class=\"icon\">");
+    fprintf(html, "<i class=\"icon-user\"></i>");
+    fprintf(html, "</div>");
+    fprintf(html, "<div class=\"data\">");
+    fprintf(html, "<h3>Personality</h3>");
+
+    fprintf(html, "<p>");
+	html_build_list(html, des);
+	fprintf(html, "</p>");
+
+    fprintf(html, "</div>");
+    fprintf(html, "</li>");
+    fprintf(html, "<li class=\"bg-color-red fg-color-white\">");
+    fprintf(html, "<div class=\"icon\">");
+    fprintf(html, "<i class=\"icon-headphones\"></i>");
+    fprintf(html, "</div>");
+    fprintf(html, "<div class=\"data\">");
+    fprintf(html, "<h3>Favorite</h3>");
+    
+	html_build_list(html, hobby);
+
+    fprintf(html, "</div>");
+    fprintf(html, "</li>");
+    fprintf(html, "</ul>");
+    fprintf(html, "</div>");
+}
+
+void html_listview_begin(HTML html)
+{
+    fprintf(html, "<div class=\"span8\">");
+	fprintf(html, "<h2>Friends</h2>");
+    fprintf(html, "<ul class=\"listview fluid\">");
+}
+
+void html_listview_item(HTML html, char *mssv, char *name, char *year)
+{
+	fprintf(html, "<li>");
+    fprintf(html, "<a href=\"%s.html\">", mssv);
+    fprintf(html, "<div class=\"icon\">");
+    fprintf(html, "<img src=\"./images/%s_t.jpg\" alt=\"%s\">", mssv, mssv);
+    fprintf(html, "</div>");
+    fprintf(html, "<div class=\"data\">");
+    fprintf(html, "<h4>%s</h4>", name);
+    fprintf(html, "<p>FIT %s</p>", year);
+    fprintf(html, "</div>");
+    fprintf(html, "</a>");
+    fprintf(html, "</li>");
+}
+
+void html_listview_end(HTML html)
+{
+	fprintf(html, "</ul>");
+    fprintf(html, "</div>");
+}
+
+void html_content_pesonal_end(HTML html)
+{
+	fprintf(html, "</div></div></div></div>");
+}
+
+void html_build_list(HTML html, char **list)
+{
+	fprintf(html, "<ul>");
+	for (int i = 0; list[i] != NULL; i++) {
+		fprintf(html, "<li>%s<\/li>", list[i]);
+		delete list[i];
+	}
+	fprintf(html, "<\/ul>");
+	delete list;
+}

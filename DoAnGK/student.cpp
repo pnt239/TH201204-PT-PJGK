@@ -28,10 +28,10 @@ void convertRAWtoST(RAW_CSV csv, STS &st)
 		st[i]->BirthD = sTemp[0];
 		// Lay Avatar nho
 		sTemp = explode(freeExplode(sTemp), ",");
-		st[i]->smallImg = sTemp[0];
+		st[i]->bigImg = sTemp[0];
 		// Lay Avatar lon
 		sTemp = explode(freeExplode(sTemp), ",");
-		st[i]->bigImg = sTemp[0];
+		st[i]->smallImg = sTemp[0];
 		// Lay Danh sach ban be
 		sTemp = explode(freeExplode(sTemp), ",");
 		st[i]->FriendList = sTemp[0];
@@ -49,4 +49,12 @@ void freeST(STS &st) {
 	for (int i = 0; st[i] != NULL; i++)
 		delete st[i];
 	delete st;
+}
+
+int getFList(STS sts, char *mssv)
+{
+	for (int i = 0; sts[i] != NULL; i++)
+		if (strcmp(sts[i]->MSSV, mssv) == 0)
+			return i;
+	return -1;
 }
